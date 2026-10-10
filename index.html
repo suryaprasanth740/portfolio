@@ -1,0 +1,440 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Surya Prasanth G</title>
+<meta name="description" content="Surya Prasanth G — aspiring software developer. Java, Spring Boot, JavaScript and React projects, built and tested like a QA engineer.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Surya Prasanth G — Software Developer">
+<meta property="og:description" content="Full-stack projects in Java/Spring Boot and React/Firebase, tested like a QA engineer.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+:root{
+  color-scheme:dark;
+  --ink:#0b1016; --panel:#111922; --panel2:#16212c; --line:#223242;
+  --text:#e2e9ef; --muted:#8fa0af; --amber:#ffb547; --sky:#7cc4ff;
+  --pass:#5fd49a; --fail:#ff6b6b;
+  --display:"Chakra Petch",ui-sans-serif,system-ui,sans-serif;
+  --body:"IBM Plex Sans",ui-sans-serif,system-ui,sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,Consolas,monospace;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--ink);color:var(--text);font:16px/1.65 var(--body);
+  background-image:radial-gradient(circle at 1px 1px,#1a2633 1px,transparent 0);background-size:28px 28px}
+a{color:var(--sky)}
+:focus-visible{outline:2px solid var(--amber);outline-offset:3px;border-radius:4px}
+.wrap{max-width:1080px;margin:0 auto;padding-inline:20px}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0;letter-spacing:.01em}
+.label{font:600 12px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--amber)}
+.muted{color:var(--muted)}
+
+/* nav */
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:10;background:rgba(11,16,22,.88);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+nav{display:flex;align-items:center;gap:20px;min-height:60px}
+.logo{font:700 18px var(--display);color:var(--text);text-decoration:none;margin-right:auto}
+.logo span{color:var(--amber)}
+.links{display:flex;gap:4px;flex-wrap:wrap}
+.links a{color:var(--muted);text-decoration:none;font:500 14px var(--body);padding:8px 10px;border-radius:6px}
+.links a:hover{color:var(--text);background:var(--panel2)}
+.menu-btn{display:none;background:none;border:1px solid var(--line);color:var(--text);border-radius:6px;padding:8px 12px;font:600 13px var(--mono);cursor:pointer}
+@media (max-width:760px){
+  .menu-btn{display:block}
+  .links{display:none;position:absolute;left:0;right:0;top:60px;background:var(--ink);border-bottom:1px solid var(--line);flex-direction:column;padding:8px 20px 16px}
+  .links.open{display:flex}
+  .links a{padding:12px 8px}
+}
+
+/* hero */
+.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center;padding-block:64px 48px}
+.status{display:inline-flex;align-items:center;gap:8px;font:600 12px var(--mono);color:var(--pass);border:1px solid #24503b;background:#10231a;padding:6px 12px;border-radius:999px}
+.status i{width:8px;height:8px;border-radius:50%;background:var(--pass);box-shadow:0 0 0 4px rgba(95,212,154,.18)}
+.hero h1{font-size:clamp(40px,6vw,64px);line-height:1.02;margin-top:18px}
+.hero h1 em{font-style:normal;color:var(--amber)}
+.role{font:600 clamp(16px,2.2vw,20px) var(--mono);color:var(--sky);margin-top:14px;min-height:1.6em}
+.role .caret{display:inline-block;width:9px;background:var(--sky);margin-left:2px;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.hero p.lead{max-width:56ch;color:#c3cfda;margin:18px 0 0}
+.cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
+.btn{display:inline-flex;align-items:center;gap:8px;font:600 15px var(--body);text-decoration:none;padding:12px 18px;border-radius:8px;border:1px solid var(--line);color:var(--text);background:var(--panel);cursor:pointer}
+.btn:hover{border-color:var(--sky)}
+.btn.primary{background:var(--amber);border-color:var(--amber);color:#1b1204}
+.btn.primary:hover{filter:brightness(1.07)}
+.facts{display:flex;gap:10px 22px;flex-wrap:wrap;margin-top:24px;font:500 14px var(--mono);color:var(--muted)}
+.facts b{color:var(--text);font-weight:600}
+
+/* terminal */
+.term{background:#070b10;border:1px solid var(--line);border-radius:12px;overflow:hidden;box-shadow:0 20px 60px -30px rgba(124,196,255,.35)}
+.term-bar{display:flex;align-items:center;gap:7px;padding:10px 14px;background:var(--panel);border-bottom:1px solid var(--line);font:500 12px var(--mono);color:var(--muted)}
+.term-bar i{width:11px;height:11px;border-radius:50%;background:#2b3a48}
+.term-bar i:nth-child(1){background:#ff6b6b}.term-bar i:nth-child(2){background:#ffb547}.term-bar i:nth-child(3){background:#5fd49a}
+.term-bar span{margin-left:8px}
+.term-out{height:280px;overflow-y:auto;padding:14px 16px 4px;font:13px/1.6 var(--mono);white-space:pre-wrap;word-break:break-word}
+.term-out .p{color:var(--amber)}.term-out .ok{color:var(--pass)}.term-out .err{color:var(--fail)}.term-out .dim{color:var(--muted)}
+.term form{display:flex;gap:8px;align-items:center;padding:6px 16px 14px;font:13px var(--mono)}
+.term form label{color:var(--amber);white-space:nowrap}
+.term input{flex:1;min-width:0;background:transparent;border:0;color:var(--text);font:13px var(--mono);padding:6px 0}
+.term input:focus{outline:none}
+.term form:focus-within{box-shadow:inset 0 1px 0 var(--line)}
+.chips{display:flex;gap:6px;flex-wrap:wrap;padding:0 16px 14px}
+.chips button{font:500 12px var(--mono);background:var(--panel2);border:1px solid var(--line);color:var(--muted);border-radius:6px;padding:5px 9px;cursor:pointer}
+.chips button:hover{color:var(--text);border-color:var(--sky)}
+
+/* sections */
+section.block{padding-block:56px;border-top:1px solid var(--line)}
+.sec-head{display:flex;align-items:baseline;gap:16px;flex-wrap:wrap;margin-bottom:28px}
+.sec-head h2{font-size:clamp(28px,4vw,38px)}
+.about-grid{display:grid;grid-template-columns:1.3fr 1fr;gap:36px}
+.about-grid p{margin:0 0 14px;max-width:62ch;color:#c9d4de}
+dl.kv{margin:0;display:grid;grid-template-columns:auto minmax(0,1fr);gap:10px 18px;font-size:15px;align-content:start;align-self:start;padding:20px;border:1px solid var(--line);border-radius:10px;background:var(--panel)}
+dl.kv dt{font:600 12px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);padding-top:3px}
+dl.kv dd{margin:0;min-width:0;overflow-wrap:anywhere}
+.about-grid>*,.proj>*,.contact>*,.hero>*{min-width:0}
+
+/* skills */
+.skills{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.skill-group{padding:20px;border:1px solid var(--line);border-radius:10px;background:var(--panel)}
+.skill-group h3{font-size:17px;margin-bottom:12px}
+.tags{display:flex;flex-wrap:wrap;gap:8px}
+.tag{font:500 13px var(--mono);padding:5px 10px;border-radius:6px;background:var(--panel2);border:1px solid var(--line);color:#cfd9e2}
+.tag.core{border-color:#5a4520;color:var(--amber)}
+.legend{font:12px var(--mono);color:var(--muted);margin-top:14px}
+.legend .tag{font-size:11px;padding:2px 7px}
+
+/* projects */
+.projects{display:grid;gap:22px}
+.proj{display:grid;grid-template-columns:1fr 1fr;gap:28px;padding:26px;border:1px solid var(--line);border-radius:12px;background:var(--panel)}
+.proj h3{font-size:26px}
+.proj .kind{font:600 12px var(--mono);color:var(--sky);letter-spacing:.08em;text-transform:uppercase;margin-bottom:8px}
+.proj p{color:#c9d4de;margin:12px 0}
+.proj ul{margin:0 0 16px;padding-left:18px;color:#c9d4de}
+.proj li{margin-bottom:6px}
+.proj .tags{margin-bottom:18px}
+.proj .cta{margin-top:0}
+.proj .btn{font-size:14px;padding:9px 14px}
+
+/* test report */
+.report{border:1px solid var(--line);border-radius:10px;overflow:hidden;background:#0a0f15;align-self:start}
+.report-head{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;padding:12px 14px;background:var(--panel2);border-bottom:1px solid var(--line);font:600 12px var(--mono)}
+.report-head .sum{color:var(--pass)}
+.report table{width:100%;border-collapse:collapse;font-size:13.5px}
+.report td{padding:9px 14px;border-bottom:1px solid #18242f;vertical-align:top}
+.report tr:last-child td{border-bottom:0}
+.report td:first-child{font:600 11px var(--mono);color:var(--pass);white-space:nowrap;padding-top:11px}
+.report td b{display:block;font-weight:600;color:var(--text)}
+.report td span{color:var(--muted)}
+
+/* education */
+.edu{display:grid;grid-template-columns:auto 1fr auto;gap:18px;align-items:center;padding:22px;border:1px solid var(--line);border-radius:10px;background:var(--panel)}
+.edu .yr{font:600 14px var(--mono);color:var(--amber)}
+.edu h3{font-size:20px}
+.edu .grade{font:600 14px var(--mono);text-align:right}
+.edu .grade small{display:block;color:var(--muted);font-weight:400}
+
+/* contact */
+.contact{display:grid;grid-template-columns:1fr 1.1fr;gap:28px}
+.cards{display:grid;gap:12px;align-content:start}
+.ccard{display:flex;align-items:center;gap:14px;padding:16px;border:1px solid var(--line);border-radius:10px;background:var(--panel)}
+.ccard .k{font:600 11px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.ccard .v{font-size:15px;word-break:break-all;user-select:all}
+.ccard .grow{flex:1;min-width:0}
+.ccard button,.ccard a.go{font:600 12px var(--mono);background:var(--panel2);border:1px solid var(--line);color:var(--text);border-radius:6px;padding:7px 10px;cursor:pointer;text-decoration:none;white-space:nowrap}
+.ccard button:hover,.ccard a.go:hover{border-color:var(--sky)}
+form.msg{padding:22px;border:1px solid var(--line);border-radius:10px;background:var(--panel);display:grid;gap:14px}
+form.msg label{font:600 12px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);display:grid;gap:6px}
+form.msg input,form.msg textarea{font:15px var(--body);color:var(--text);background:var(--ink);border:1px solid var(--line);border-radius:8px;padding:11px 12px;width:100%;text-transform:none;letter-spacing:0}
+form.msg input:focus,form.msg textarea:focus{outline:none;border-color:var(--sky)}
+form.msg textarea{min-height:120px;resize:vertical}
+.note{font:13px var(--mono);min-height:1.2em}
+.note.ok{color:var(--pass)}.note.err{color:var(--fail)}
+.hp{position:absolute;left:-9999px}
+footer{border-top:1px solid var(--line);padding-block:26px;font:13px var(--mono);color:var(--muted)}
+footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+
+@media (max-width:860px){
+  .hero,.about-grid,.proj,.contact{grid-template-columns:1fr}
+  .skills{grid-template-columns:1fr}
+  .hero{padding-block:40px 36px}
+  .edu{grid-template-columns:1fr}
+  .edu .grade{text-align:left}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .role .caret{animation:none}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="wrap" aria-label="Main">
+    <a class="logo" href="#top">Surya<span>.</span>dev</a>
+    <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="navLinks">Menu</button>
+    <div class="links" id="navLinks">
+      <a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#education">Education</a><a href="#contact">Contact</a>
+    </div>
+  </nav>
+</header>
+
+<main id="top">
+  <div class="wrap hero">
+    <div>
+      <span class="status"><i></i>Open to internships &amp; fresher roles</span>
+      <h1>Hi, I'm <em>Surya Prasanth&nbsp;G</em></h1>
+      <div class="role" aria-live="polite"><span id="roleText">Aspiring Software Developer</span><span class="caret" aria-hidden="true">&nbsp;</span></div>
+      <p class="lead">Computer Science diploma graduate from Acharya Institute of Technology. I build full-stack web apps with Java, Spring Boot, JavaScript and React, and I test them the way a QA engineer would before I call them done.</p>
+      <div class="cta">
+        <a class="btn primary" href="#projects">View projects</a>
+        <a class="btn" href="Surya_Prasanth_Resume.pdf" target="_blank" rel="noopener">Resume (PDF)</a>
+        <a class="btn" href="#contact">Contact</a>
+      </div>
+      <div class="facts">
+        <span><b>2</b> live full-stack apps</span>
+        <span><b>36</b> automated tests</span>
+        <span>Bengaluru, India</span>
+      </div>
+    </div>
+
+    <div class="term" aria-label="Interactive terminal">
+      <div class="term-bar"><i></i><i></i><i></i><span>surya@portfolio: ~</span></div>
+      <div class="term-out" id="termOut" role="log" aria-live="polite"></div>
+      <form id="termForm" autocomplete="off">
+        <label for="termIn">surya@portfolio:~$</label>
+        <input id="termIn" type="text" placeholder="type help" spellcheck="false" autocapitalize="off">
+      </form>
+      <div class="chips" aria-label="Quick commands">
+        <button type="button" data-cmd="help">help</button>
+        <button type="button" data-cmd="about">about</button>
+        <button type="button" data-cmd="skills">skills</button>
+        <button type="button" data-cmd="projects">projects</button>
+        <button type="button" data-cmd="test freshcart">test freshcart</button>
+        <button type="button" data-cmd="contact">contact</button>
+      </div>
+    </div>
+  </div>
+
+  <section class="block" id="about">
+    <div class="wrap">
+      <div class="sec-head"><span class="label">About</span><h2>Builder with a tester's eye</h2></div>
+      <div class="about-grid">
+        <div>
+          <p>I finished my Diploma in Computer Science at Acharya Institute of Technology (2023–2026). Since then I've built and deployed two full-stack projects: FreshCart, a grocery store in Java and Spring Boot, and PortfolioHub, a portfolio builder in React and Firebase.</p>
+          <p>My habit is to try to break what I build. For FreshCart I compared the checkout with apps like Swiggy Instamart, listed every edge case they handle, then wrote code and a JUnit test for each one: two people buying the last item, double-clicking "Place order", prices changing mid-checkout.</p>
+          <p>I'm looking for a Software Developer Intern or fresher role where I can ship features and keep quality high.</p>
+        </div>
+        <dl class="kv">
+          <dt>Role</dt><dd>Software Developer (Intern / Fresher)</dd>
+          <dt>Location</dt><dd>Bengaluru, Karnataka</dd>
+          <dt>Education</dt><dd>Diploma in CS, CGPA 7.2</dd>
+          <dt>Email</dt><dd>mail2suryaprasanth@gmail.com</dd>
+          <dt>Status</dt><dd style="color:var(--pass)">Available now</dd>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="skills">
+    <div class="wrap">
+      <div class="sec-head"><span class="label">Skills</span><h2>What I work with</h2></div>
+      <div class="skills">
+        <div class="skill-group">
+          <h3>Languages</h3>
+          <div class="tags"><span class="tag core">Java</span><span class="tag core">JavaScript</span><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">Python</span><span class="tag">SQL</span></div>
+        </div>
+        <div class="skill-group">
+          <h3>Frameworks &amp; data</h3>
+          <div class="tags"><span class="tag core">Spring Boot</span><span class="tag core">React</span><span class="tag">Spring Data JPA</span><span class="tag">Firebase</span><span class="tag">MySQL</span><span class="tag">Tailwind CSS</span></div>
+        </div>
+        <div class="skill-group">
+          <h3>Tools &amp; testing</h3>
+          <div class="tags"><span class="tag core">Git</span><span class="tag">JUnit 5</span><span class="tag">Maven</span><span class="tag">Docker</span><span class="tag">Render</span><span class="tag">VS Code</span></div>
+        </div>
+      </div>
+      <p class="legend"><span class="tag core">amber</span> = used in a shipped project</p>
+    </div>
+  </section>
+
+  <section class="block" id="projects">
+    <div class="wrap">
+      <div class="sec-head"><span class="label">Projects</span><h2>Shipped and tested</h2></div>
+      <div class="projects">
+
+        <article class="proj">
+          <div>
+            <div class="kind">Full-stack e-commerce</div>
+            <h3>FreshCart</h3>
+            <p>A grocery store where customers browse products, manage a cart and check out, with an admin panel for orders, stock, expiry dates and coupons.</p>
+            <ul>
+              <li>REST backend in Java 17 and Spring Boot 3 with Spring Data JPA</li>
+              <li>Checkout with coupons, PIN-code check, full bill breakdown and a demo UPI screen</li>
+              <li>36 JUnit tests run by GitHub Actions on every push</li>
+            </ul>
+            <div class="tags"><span class="tag">Java 17</span><span class="tag">Spring Boot 3</span><span class="tag">MySQL / H2</span><span class="tag">JavaScript</span><span class="tag">JUnit 5</span><span class="tag">Docker</span></div>
+            <div class="cta">
+              <a class="btn primary" href="https://grocery-web-app-fb3j.onrender.com" target="_blank" rel="noopener">Live demo</a>
+              <a class="btn" href="https://github.com/suryaprasanth740/grocery-web-app" target="_blank" rel="noopener">Code</a>
+            </div>
+          </div>
+          <div class="report" aria-label="FreshCart edge-case test report">
+            <div class="report-head"><span>edge-case tests</span><span class="sum">6 / 6 passing</span></div>
+            <table>
+              <tr><td>PASS</td><td><b>Two buyers, last item</b><span>Atomic stock update, only one order wins</span></td></tr>
+              <tr><td>PASS</td><td><b>Double-click "Place order"</b><span>Request id makes checkout idempotent</span></td></tr>
+              <tr><td>PASS</td><td><b>Price changed in cart</b><span>Shows old vs new price, refuses stale total</span></td></tr>
+              <tr><td>PASS</td><td><b>Expired products</b><span>Items past best-before can't be sold</span></td></tr>
+              <tr><td>PASS</td><td><b>Brute-force login</b><span>Locked for 15 min after 5 wrong tries</span></td></tr>
+              <tr><td>PASS</td><td><b>Another user's order URL</b><span>Owner check returns 403</span></td></tr>
+            </table>
+          </div>
+        </article>
+
+        <article class="proj">
+          <div>
+            <div class="kind">Web app / SaaS</div>
+            <h3>PortfolioHub</h3>
+            <p>A portfolio builder for developers and students: sign up, fill in your profile and projects, pick a theme and publish to a shareable link.</p>
+            <ul>
+              <li>React 18 front end with Firebase Auth, Firestore and Storage</li>
+              <li>Markdown blog, GitHub project display, contact inbox and PDF export</li>
+              <li>Protected dashboard routes; public pages at /p/username</li>
+            </ul>
+            <div class="tags"><span class="tag">React 18</span><span class="tag">Firebase</span><span class="tag">Firestore</span><span class="tag">Tailwind CSS</span><span class="tag">Vite</span></div>
+            <div class="cta">
+              <a class="btn primary" href="https://portfoliohub-fbcda.web.app" target="_blank" rel="noopener">Live demo</a>
+              <a class="btn" href="https://github.com/suryaprasanth740" target="_blank" rel="noopener">GitHub</a>
+            </div>
+          </div>
+          <div class="report" aria-label="PortfolioHub feature checklist">
+            <div class="report-head"><span>feature checklist</span><span class="sum">6 features</span></div>
+            <table>
+              <tr><td>DONE</td><td><b>Email sign-in</b><span>Firebase Auth with route guards</span></td></tr>
+              <tr><td>DONE</td><td><b>Six colour themes</b><span>Applied instantly, no rebuild</span></td></tr>
+              <tr><td>DONE</td><td><b>Live GitHub stars</b><span>Pulled from the GitHub API</span></td></tr>
+              <tr><td>DONE</td><td><b>Markdown blog</b><span>Split-pane editor with code highlighting</span></td></tr>
+              <tr><td>DONE</td><td><b>Contact inbox</b><span>Visitor messages land in the dashboard</span></td></tr>
+              <tr><td>DONE</td><td><b>One-click PDF</b><span>Export the portfolio for applications</span></td></tr>
+            </table>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="education">
+    <div class="wrap">
+      <div class="sec-head"><span class="label">Education</span><h2>Where I studied</h2></div>
+      <div class="edu">
+        <div class="yr">2023 – 2026</div>
+        <div><h3>Diploma in Computer Science</h3><div class="muted">Acharya Institute of Technology, Bengaluru</div></div>
+        <div class="grade">7.2<small>CGPA</small></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="contact">
+    <div class="wrap">
+      <div class="sec-head"><span class="label">Contact</span><h2>Let's talk</h2></div>
+      <div class="contact">
+        <div class="cards">
+          <p class="muted" style="margin:0 0 6px;max-width:48ch">Hiring for an intern or fresher developer role? Email me or connect on LinkedIn. I usually reply within a day.</p>
+          <div class="ccard"><div class="grow"><div class="k">Email</div><div class="v" id="emailText">mail2suryaprasanth@gmail.com</div></div><button type="button" id="copyEmail">Copy</button></div>
+          <div class="ccard"><div class="grow"><div class="k">LinkedIn</div><div class="v">surya-prasanth-g-055975370</div></div><a class="go" href="https://www.linkedin.com/in/surya-prasanth-g-055975370" target="_blank" rel="noopener">Open</a></div>
+          <div class="ccard"><div class="grow"><div class="k">GitHub</div><div class="v">suryaprasanth740</div></div><a class="go" href="https://github.com/suryaprasanth740" target="_blank" rel="noopener">Open</a></div>
+        </div>
+        <form class="msg" id="msgForm" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" novalidate>
+          <input type="hidden" name="form-name" value="contact">
+          <p class="hp"><label>Leave empty <input name="bot-field" id="botField" tabindex="-1" autocomplete="off"></label></p>
+          <label for="fName">Your name<input id="fName" name="name" type="text" maxlength="80" autocomplete="name" required></label>
+          <label for="fEmail">Email<input id="fEmail" name="email" type="email" maxlength="120" autocomplete="email" required></label>
+          <label for="fMsg">Message<textarea id="fMsg" name="message" maxlength="2000" required></textarea></label>
+          <button class="btn primary" type="submit" id="sendBtn">Send message</button>
+          <div class="note" id="formNote" role="status"></div>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer><div class="wrap"><span>© 2026 Surya Prasanth G</span><span>Built with HTML, CSS &amp; JavaScript</span></div></footer>
+
+<script>
+(function(){
+  var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // mobile menu
+  var mb=document.getElementById('menuBtn'), nl=document.getElementById('navLinks');
+  mb.addEventListener('click',function(){var o=nl.classList.toggle('open');mb.setAttribute('aria-expanded',o)});
+  nl.addEventListener('click',function(e){if(e.target.tagName==='A'){nl.classList.remove('open');mb.setAttribute('aria-expanded','false')}});
+
+  // rotating role (text is complete at rest; rotation only swaps words)
+  var roles=['Aspiring Software Developer','Java & Spring Boot Developer','React Front-end Developer','QA-minded Engineer'], ri=0, rt=document.getElementById('roleText');
+  if(!reduce){setInterval(function(){ri=(ri+1)%roles.length;rt.textContent=roles[ri]},2800)}
+
+  // terminal
+  var out=document.getElementById('termOut'), inp=document.getElementById('termIn'), hist=[], hi=0;
+  function line(txt,cls){var d=document.createElement('div');if(cls)d.className=cls;d.textContent=txt;out.appendChild(d);out.scrollTop=out.scrollHeight}
+  var C={
+    help:function(){line('Commands:\n  about        who I am\n  skills       languages, frameworks, tools\n  projects     what I have built\n  test freshcart  run FreshCart edge-case tests\n  education    where I studied\n  contact      how to reach me\n  resume       open my resume\n  clear        clear the screen\nTip: use ↑ / ↓ for history.','dim')},
+    about:function(){line('Surya Prasanth G — aspiring software developer.\nDiploma in CS, Acharya Institute of Technology (2023–2026).\nI build full-stack apps and test them like a QA engineer.')},
+    skills:function(){line('languages : Java, JavaScript, HTML, CSS, Python, SQL\nframeworks: Spring Boot, React, Spring Data JPA, Firebase\ndata      : MySQL, H2, Firestore\ntools     : Git, JUnit 5, Maven, Docker, Render')},
+    projects:function(){line('1. FreshCart     Java 17 + Spring Boot 3 grocery store, 36 tests\n   live: grocery-web-app-fb3j.onrender.com\n2. PortfolioHub  React + Firebase portfolio builder\n   live: portfoliohub-fbcda.web.app')},
+    education:function(){line('Diploma in Computer Science\nAcharya Institute of Technology · 2023–2026 · CGPA 7.2')},
+    contact:function(){line('email   : mail2suryaprasanth@gmail.com\nlinkedin: linkedin.com/in/surya-prasanth-g-055975370\ngithub  : github.com/suryaprasanth740');document.getElementById('contact').scrollIntoView({behavior:reduce?'auto':'smooth'})},
+    resume:function(){line('Opening Surya_Prasanth_Resume.pdf …','ok');var a=document.createElement('a');a.href='Surya_Prasanth_Resume.pdf';a.target='_blank';a.rel='noopener';document.body.appendChild(a);a.click();a.remove()},
+    clear:function(){out.textContent=''},
+    'test freshcart':function(){
+      var t=['Two buyers, last item','Double-click Place order','Price changed in cart','Expired products','Brute-force login','Another user\'s order URL'];
+      line('Running FreshCart edge-case suite…','dim');
+      t.forEach(function(n,i){setTimeout(function(){line('  ✔ '+n,'ok');if(i===t.length-1)line('6 passed, 0 failed','ok')},reduce?0:180*(i+1))});
+    }
+  };
+  C.ls=C.help; C.whoami=C.about;
+  function run(raw){
+    var cmd=raw.trim(); line('surya@portfolio:~$ '+cmd,'p');
+    if(!cmd)return; hist.push(cmd); hi=hist.length;
+    var key=cmd.toLowerCase().replace(/\s+/g,' ');
+    if(C[key])C[key](); else line("command not found: "+cmd+"  (type 'help')",'err');
+  }
+  line('Welcome! This terminal works. Type a command or tap one below.','dim');C.help();
+  document.getElementById('termForm').addEventListener('submit',function(e){e.preventDefault();run(inp.value);inp.value=''});
+  inp.addEventListener('keydown',function(e){
+    if(e.key==='ArrowUp'&&hist.length){e.preventDefault();hi=Math.max(0,hi-1);inp.value=hist[hi]}
+    else if(e.key==='ArrowDown'&&hist.length){e.preventDefault();hi=Math.min(hist.length,hi+1);inp.value=hist[hi]||''}
+  });
+  document.querySelectorAll('.chips button').forEach(function(b){b.addEventListener('click',function(){run(b.dataset.cmd)})});
+
+  // copy email
+  var cb=document.getElementById('copyEmail'), et=document.getElementById('emailText');
+  cb.addEventListener('click',function(){
+    var done=function(){cb.textContent='Copied';setTimeout(function(){cb.textContent='Copy'},1600)};
+    var sel=function(){var r=document.createRange();r.selectNodeContents(et);var s=getSelection();s.removeAllRanges();s.addRange(r);cb.textContent='Selected'};
+    try{navigator.clipboard.writeText(et.textContent).then(done,sel)}catch(e){sel()}
+  });
+
+  // contact form: real submission via Netlify Forms when hosted on Netlify
+  var f=document.getElementById('msgForm'), note=document.getElementById('formNote'), btn=document.getElementById('sendBtn');
+  f.addEventListener('submit',function(e){
+    e.preventDefault();
+    var n=f.name.value.trim(), m=f.email.value.trim(), msg=f.message.value.trim();
+    note.className='note err';
+    if(!n){note.textContent='Please enter your name.';f.name.focus();return}
+    if(!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(m)){note.textContent='Please enter a valid email address.';f.email.focus();return}
+    if(msg.length<10){note.textContent='Please write a message of at least 10 characters.';f.message.focus();return}
+    if(!/netlify\.app$/.test(location.hostname)){
+      note.className='note';note.textContent='The form sends messages once the site is live on Netlify. For now, email mail2suryaprasanth@gmail.com.';return;
+    }
+    btn.disabled=true;btn.textContent='Sending…';note.className='note';note.textContent='';
+    var body=new URLSearchParams(new FormData(f)).toString();
+    fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:body})
+      .then(function(r){if(!r.ok)throw 0;f.reset();note.className='note ok';note.textContent='Message sent. I\'ll reply by email soon.'})
+      .catch(function(){note.className='note err';note.textContent='Couldn\'t send right now. Please email mail2suryaprasanth@gmail.com.'})
+      .finally(function(){btn.disabled=false;btn.textContent='Send message'});
+  });
+})();
+</script>
+</body>
+</html>
